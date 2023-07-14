@@ -1,0 +1,40 @@
+// run this program at the Windows Command Prompt using cscript
+
+function rollDice() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+  
+  function playGame() {
+    var humanScore = 0;
+    var computerScore = 0;
+  
+    while (humanScore < 20 && computerScore < 20) {
+      var humanRoll = rollDice();
+      var computerRoll = rollDice();
+  
+      WScript.Echo("You rolled a " + humanRoll);
+      WScript.Echo("Computer rolled a " + computerRoll);
+  
+      if (humanRoll > computerRoll) {
+        humanScore += humanRoll;
+        WScript.Echo("You win this round!");
+      } else if (humanRoll < computerRoll) {
+        computerScore += computerRoll;
+        WScript.Echo("Computer wins this round!");
+      } else {
+        WScript.Echo("It's a tie!");
+      }
+  
+      WScript.Echo("Your score: " + humanScore);
+      WScript.Echo("Computer score: " + computerScore);
+      WScript.Echo("-------------------------");
+    }
+  
+    if (humanScore >= 20) {
+      WScript.Echo("Congratulations! You win the game!");
+    } else {
+      WScript.Echo("Sorry, the computer wins the game!");
+    }
+  }
+  
+  playGame();
